@@ -8,7 +8,7 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,9 +16,102 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section data-visibility="hidden">Slide X</section>
-				<section>Slide 2</section>
+			<section data-markdown>
+			<textarea data-template>
+				## Matryoshka-Adaptor
+				### How we can reduce the size of embedding vector without losing much information?
+				###### (Yoon et al., 2024)
+				---
+				## What are embeddings?
+				![](./assets/rag.png)
+				---
+				## What we want to achieve?
+				![](./assets/longvector.png)
+				- we want to preserve as much information as possible 
+				- having as long vector as possible
+
+				---
+				![](./assets/bottleneck.png)
+				---
+				## Matryoshka 2022
+				###### (Kusupati et al., 2022)
+				![](./assets/matryoshka2022.png)
+				---
+				## Loss function
+				![](./assets/matryoshkafunc.png)
+				---
+				## Loss function
+				![](./assets/losssum.png)
+				---
+				 <video controls style="max-width: 100%; height: auto;">
+          		<source src="../Math-To-Manim/media/videos/matryoshka_objective_animation/1080p60/MatryoshkaObjective.mp4" type="video/mp4">
+				</video>
+				---
+				## We can cut the vector
+				![](./assets/cutvector.png)
+				---
+				## It defines the more efficient way to create embeddings (pre-training process)
+				- it's great when we have enough resources to train own embedding model from scratch, but...
+				---
+				## It would be great to have a way to improve already trained embedding model
+				---
+				## Matryoshka-Adaptor 2024 
+				###### (Yoon et al., 2024)
+				![](./assets/blackbox.png)
+
+				---
+				<img src="./assets/residualshit.png" alt="Matryoshka-Adaptor" style="max-width: 75%; height: auto;">
+				---
+				<img src="./assets/mlp.png" alt="Matryoshka-Adaptor" style="max-width: 100%; height: auto;">
+				---
+				<img src="./assets/lpair.png" alt="Matryoshka-Adaptor" style="max-width: 100%; height: auto;">
+				---
+				<img src="./assets/ltopk.png" alt="Matryoshka-Adaptor" style="max-width: 100%; height: auto;">
+				---
+				<img src="./assets/rec.png" alt="Matryoshka-Adaptor" style="max-width: 50%; height: auto;">
+				---
+				<img src="./assets/general.png" alt="Matryoshka-Adaptor" style="max-width: 100%; height: auto;">
+				---
+				<img src="./assets/freelunsh.png" alt="Matryoshka-Adaptor" style="max-width: 50%; height: auto;">
+
+
+				Two-fold (2x) reduction in dimensionality with zero loss in performance. 
+				
+				It is a fantastic "free lunch"!
+
+				---
+				<img src="./assets/graphcomparision.png" alt="Matryoshka-Adaptor" style="max-width: 75%; height: auto;">
+				---
+				<img src="./assets/rank.png" alt="Matryoshka-Adaptor" style="max-width: 100%; height: auto;">
+				---
+				<img src="./assets/goal.png" alt="Matryoshka-Adaptor" style="max-width: 100%; height: auto;">
+				---
+				<img src="./assets/graphcomparision.png" alt="Matryoshka-Adaptor" style="max-width: 50%; height: auto;">
+
+				6x - 12x reduction without sacrificing performance
+				---
+				What about PCA?
+				> ''Also, PCA’s orthogonality
+				> properties may limit its reliability for dimensionality reduction for vectors with highly non-linear
+				> relationships, especially at high dimensionality.''
+				---
+				<video controls style="max-width: 100%; height: auto;">
+          		<source src="../Math-To-Manim/media/videos/matryoshka_adaptor_animation/1080p60/MatryoshkaAdaptor.mp4" type="video/mp4">
+				</video>
+
+				---
+				## Summary
+				---
+				### Evaluated on various domains and tasks:
+				- English
+				- Multilingual
+				- Multimodal
+				---
+				<img src="./assets/summary.png" alt="Matryoshka-Adaptor" style="max-width: 100%; height: auto;">
+				---
+				# Thank you for listening!
+			</textarea>
+			</section>
 			</div>
 		</div>
 
